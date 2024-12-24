@@ -29,6 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <title>Vista</title>
+      <meta name="description" content="Best website for tech and services" />
+        <link rel="icon" href="/rating.ico" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >

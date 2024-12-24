@@ -1,38 +1,86 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 
 const HomePage = () => {
+  const [hover, setHover] = useState<boolean>(false);
+  const [isFixed, setIsFixed] = useState<boolean>(false);
+  const [isInView, setIsInView] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = (): void => {
+      if (window.scrollY > 50) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Tyra Dhillon",
+      role: "Software Tester",
+      review:
+        "This CRM has transformed how we interact with our customers. The marketing automation and customer...",
+    },
+    {
+      id: 2,
+      name: "John Doe",
+      role: "Product Manager",
+      review:
+        "Using this CRM has significantly improved our workflow. It's intuitive and easy to use...",
+    },
+    {
+      id: 3,
+      name: "Jane Smith",
+      role: "UX Designer",
+      review:
+        "I appreciate how the CRM simplifies complex tasks. Our team has become more efficient...",
+    },
+  ];
+
   return (
     <>
       <div>
-        <div className="flex justify-between px-20 py-6 items-center">
+        <div
+          className={`flex justify-between px-20 py-6 items-center transition-all duration-300 ease-in-out ${
+            isFixed ? "fixed top-0 left-0 w-full bg-white shadow-md z-50" : ""
+          }`}
+        >
           <h4 className="font-inter text-[1.5rem] text-black leading-120 font-medium">
             LOGO
           </h4>
           <div className="flex justify-center items-center gap-10">
-            <h5 className="text-hero text-[1.125rem] leading-140 font-inter font-medium">
-              About
-            </h5>
-            <h5 className="text-hero text-[1.125rem] leading-140 font-inter font-medium">
-              Features
-            </h5>
-            <h5 className="text-hero text-[1.125rem] leading-140 font-inter font-medium">
-              Pricing
-            </h5>
-            <h5 className="text-hero text-[1.125rem] leading-140 font-inter font-medium">
-              Blog
-            </h5>
+            {["About", "Features", "Pricing", "Blog"].map((item) => (
+              <div key={item} className="group perspective-1000">
+                <h5 className="text-hero text-[1.125rem] leading-140 font-inter font-medium cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:text-black">
+                  {item}
+                </h5>
+              </div>
+            ))}
           </div>
           <div className="flex justify-center items-center gap-5">
-            <div className="flex justify-center items-center border border-dynamic-black rounded-lg text-white text-sm font-medium font-Inter leading-[1.3125rem] px-3 py-2 shadow-custom-shadow bg-neutral hover:text-black hover:bg-white transition-all duration-500 ease-in-out hover:cursor-pointer">
+            <div className="flex justify-center items-center border border-dynamic-black rounded-lg text-white text-sm font-medium font-Inter leading-150 px-3 py-2 shadow-custom-shadow bg-neutral hover:text-black hover:bg-white transition-all duration-500 ease-in-out hover:cursor-pointer">
               Purchase Now
             </div>
-            <div className="flex justify-center items-center rounded-lg border border-action-outline-base px-3 py-2 text-sm font-medium leading-[1.3125rem] font-inter text-content-dark hover:bg-black hover:text-white transition-all duration-500 ease-in-out hover:cursor-pointer">
+            <div className="flex justify-center items-center rounded-lg border border-action-outline-base px-3 py-2 text-sm font-medium leading-150 font-inter text-content-dark hover:bg-black hover:text-white transition-all duration-500 ease-in-out hover:cursor-pointer">
               View Demo
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-10 p-20 items-center">
+        <div className="flex flex-col gap-10 p-20 items-center w-full">
           <div className="flex flex-col gap-3 items-center max-w-[64.75rem]">
             <h1 className="font-inter text-content-dark text-center font-medium text-[3rem] leading-120 max-w-[50rem]">
               Revolutionize Your Business with Our All-in-One CRM Dashboard
@@ -48,9 +96,18 @@ const HomePage = () => {
             <div className="flex items-center justify-center p-4 rounded-[0.25rem] max-w-[12.8125rem] w-[100%] bg-black border border-black font-inter text-white leading-[1.5rem] font-semibold text-[1rem] hover:text-black hover:bg-white cursor-pointer">
               Get Started
             </div>
-            <div className="flex p-4 justify-center items-center gap-2 max-w-[12.8125rem] w-[100%] border border-black rounded-[0.5rem] hover:bg-black hover:text-gray-50 cursor-pointer font-inter text-black leading-[1.5rem] font-semibold text-[1rem]">
+            <div
+              className="flex p-4 justify-center items-center gap-2 max-w-[12.8125rem] w-[100%] border border-black rounded-[0.5rem] hover:bg-black hover:text-gray-50 cursor-pointer font-inter text-black leading-[1.5rem] font-semibold text-[1rem]"
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
               Learn More
-              <Image src="/link.svg" width={20} height={20} alt="Learn more" />
+              <Image
+                src={`${hover ? "/link2.svg" : "link.svg"}`}
+                width={20}
+                height={20}
+                alt="Learn more"
+              />
             </div>
           </div>
           <Image
@@ -58,34 +115,196 @@ const HomePage = () => {
             alt="Learn more"
             height={520}
             width={1280}
-            className="rounded-[0.75rem] self-stretch"
+            className="rounded-[0.75rem]"
           />
         </div>
         <div className="overflow-hidden whitespace-nowrap bg-black py-8">
-            <Marquee>
-            <div className="flex items-center gap-12 justify-center pl-12">
-            <Image width={134.35296} height={9} alt="Learn more" src="/coin.svg" />
-            <Image width={131.496} height={32.964} alt="Learn more" src="/square.svg" />
-            <Image width={97.89808} height={32.964} alt="Learn more" src="/zoom.svg" />
-            <Image width={179.2} height={32} alt="Learn more" src="/drop.svg" />
-            <Image width={113} height={48} alt="Learn more" src="/google.svg" />
-            <Image width={121} height={48} alt="Learn more" src="/slack.svg" />
-            <Image width={131.496} height={32.964} src='/square.svg' alt="Learn more" />
-            <Image src="/zoom.svg" width={97.89808} height={32.964} alt="Learn more" />
-            {/* <Image width={134.35296} height={9} src="/coin.svg" alt="Learn more" /> */}
+          <Marquee pauseOnHover>
+            <div className="flex items-center gap-12 justify-center pl-12 cursor-pointer">
+              <Image
+                width={134.35296}
+                height={9}
+                alt="Learn more"
+                src="/coin.svg"
+              />
+              <Image
+                width={131.496}
+                height={32.964}
+                alt="Learn more"
+                src="/square.svg"
+              />
+              <Image
+                width={97.89808}
+                height={32.964}
+                alt="Learn more"
+                src="/zoom.svg"
+              />
+              <Image
+                width={179.2}
+                height={32}
+                alt="Learn more"
+                src="/drop.svg"
+              />
+              <Image
+                width={113}
+                height={48}
+                alt="Learn more"
+                src="/google.svg"
+              />
+              <Image
+                width={121}
+                height={48}
+                alt="Learn more"
+                src="/slack.svg"
+              />
+              <Image
+                width={131.496}
+                height={32.964}
+                src="/square.svg"
+                alt="Learn more"
+              />
+              <Image
+                src="/zoom.svg"
+                width={97.89808}
+                height={32.964}
+                alt="Learn more"
+              />
+            </div>
+          </Marquee>
+        </div>
+        <motion.div
+          initial={{
+            opacity: 0,
+            clipPath: "inset(10% 0% 0% 0%)",
+          }}
+          animate={
+            isInView
+              ? { opacity: 1, clipPath: "inset(0 0 0 0)" }
+              : { opacity: 0, clipPath: "inset(10% 0% 0% 0%)" }
+          }
+          transition={{
+            duration: 2,
+            ease: "easeOut",
+          }}
+          viewport={{ amount: 0.5 }}
+          onViewportEnter={() => setIsInView(true)}
+          onViewportLeave={() => setIsInView(false)} // Trigger exit animation
+        >
+          <div className="flex items-center justify-center px-20 pt-20 pb-10">
+            <Image src="/rone.svg" alt="code" width={720} height={480} />
+            <div className="text-[#474343] text-[2.5rem] font-medium font-inter leading-120 max-w-[36.2rem] ml-[-1.9rem]">
+              Organize projects, assign tasks, and monitor progress in
+              real-time.
+            </div>
           </div>
+        </motion.div>
+        <motion.div
+          initial={{
+            opacity: 0,
+            clipPath: "inset(10% 0% 0% 0%)",
+          }}
+          animate={
+            inView
+              ? { opacity: 1, clipPath: "inset(0 0 0 0)" }
+              : { opacity: 0, clipPath: "inset(10% 0% 0% 0%)" }
+          }
+          transition={{
+            duration: 2,
+            ease: "easeOut",
+          }}
+          viewport={{ amount: 0.5 }}
+          onViewportEnter={() => setInView(true)}
+          onViewportLeave={() => setInView(false)} // Trigger exit animation
+        >
+          <div className="flex items-center justify-center px-20 py-10 animate-appear">
+            <div className="text-[#474343] text-[2.5rem] font-medium font-inter leading-120 max-w-[36.2rem] mr-[-1.22rem] z-10">
+              Track leads, manage opportunities, and close deals faster.
+            </div>
+            <Image src="/rtwo.svg" alt="code" width={720} height={480} />
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{
+            opacity: 0,
+            clipPath: "inset(10% 0% 0% 0%)",
+          }}
+          animate={
+            isVisible
+              ? { opacity: 1, clipPath: "inset(0 0 0 0)" }
+              : { opacity: 0, clipPath: "inset(10% 0% 0% 0%)" }
+          }
+          transition={{
+            duration: 2,
+            ease: "easeOut",
+          }}
+          viewport={{ amount: 0.5 }}
+          onViewportEnter={() => setIsVisible(true)}
+          onViewportLeave={() => setIsVisible(false)} // Trigger exit animation
+        >
+          <div className="flex items-center justify-center px-20 pt-10 pb-10 animate-appear">
+            <Image src="/rthree.svg" alt="code" width={720} height={480} />
+            <div className="text-[#474343] text-[2.5rem] font-medium font-inter leading-120 max-w-[36.2rem] ml-[-3rem]">
+              Manage your team, track performance, and streamline workflows
+            </div>
+          </div>
+        </motion.div>
+        <div className="flex flex-col gap-12 p-20">
+          <div className="flex flex-col gap-2 items-center justify-center">
+            <h3 className="font-inter text-[3rem] leading-[3.6rem] font-medium text-[#000000]">
+              Used by 10K+ businesses
+            </h3>
+            <h6 className="font-inter text-[1.125rem] leading-[1.575rem] text-[#727272]">
+              Hear what our users say about OneCRM and why you should choose
+              OneCRM
+            </h6>
+          </div>
+          <div className="flex justify-center relative overflow-hidden max-w-[78rem] h-[20rem]">
+            <div className="pointer-events-none absolute top-0 left-0 w-[150px] h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
+            <div className="pointer-events-none absolute top-0 right-0 w-[150px] h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10"></div>
+            <Marquee pauseOnHover>
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="group perspective-1000">
+                  <div className="flex flex-col px-8 py-8 border border-opacity-56 rounded-lg max-w-[25rem] w-full mx-[1rem] cursor-pointer transition-transform duration-300 group-hover:scale-105">
+                    <div className="flex flex-col gap-12">
+                      <div className="flex flex-col gap-4">
+                        <div className="flex">
+                          {[...Array(4)].map((_, i) => (
+                            <Image
+                              key={i}
+                              src="/rating.svg"
+                              alt="rating"
+                              width={40}
+                              height={40}
+                            />
+                          ))}
+                          <Image
+                            src="/starhalf.svg"
+                            alt="rating"
+                            width={24}
+                            height={24}
+                          />
+                        </div>
+                        <h6 className="font-inter text-[1.125rem] leading-[1.575rem] text-[#000000] font-medium">
+                          {testimonial.review}
+                        </h6>
+                      </div>
+                      <div className="flex gap-6">
+                        <div className="rounded-[50%] w-[3rem] h-[3rem] bg-[#727272]"></div>
+                        <div className="flex flex-col gap-1">
+                          <h5 className="font-inter font-medium text-[1.125rem] leading-[1.575rem] text-[#000000]">
+                            {testimonial.name}
+                          </h5>
+                          <h5 className="font-inter font-normal text-[1.125rem] leading-[1.575rem] text-[#727272]">
+                            {testimonial.role}
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </Marquee>
-          {/* <div className="animate-marquee flex items-center gap-12">
-            <Image width={134.35296} height={9} alt="Learn more" src="/coin.svg" />
-            <Image width={131.496} height={32.964} alt="Learn more" src="/square.svg" />
-            <Image width={97.89808} height={32.964} alt="Learn more" src="/zoom.svg" />
-            <Image width={179.2} height={32} alt="Learn more" src="/drop.svg" />
-            <Image width={113} height={48} alt="Learn more" src="/google.svg" />
-            <Image width={121} height={48} alt="Learn more" src="/slack.svg" />
-            <Image width={131.496} height={32.964} src='/square.svg' alt="Learn more" />
-            <Image src="/zoom.svg" width={97.89808} height={32.964} alt="Learn more" />
-            <Image width={134.35296} height={9} src="/coin.svg" alt="Learn more" />
-          </div> */}
+          </div>
         </div>
       </div>
     </>
