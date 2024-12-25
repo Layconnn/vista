@@ -337,16 +337,16 @@ const HomePage = () => {
               <h5 className="font-inter font-semibold text-[2rem] leading-[2.4rem] text-white">LOGO</h5>
               <div className="flex gap-4 justify-start">
                 <div className="group perspective-1000">
-                  <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-105" src="/ig.svg" alt="Instagram" />
+                  <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/ig.svg" alt="Instagram" />
                 </div>
                 <div className="group perspective-1000">
-                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-105" src="/fb.svg" alt="Facebook" />
+                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/fb.svg" alt="Facebook" />
                 </div>
                 <div className="group perspective-1000">
-                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-105" src="/in.svg" alt="LinkedIn" />
+                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/in.svg" alt="LinkedIn" />
                 </div>
                 <div className="group perspective-1000">
-                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-105" src="/x.svg" alt="Twitter" />
+                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/x.svg" alt="Twitter" />
                 </div>
               </div>
           </div>
