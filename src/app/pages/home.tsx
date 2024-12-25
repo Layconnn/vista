@@ -56,7 +56,9 @@ const HomePage = () => {
       <div>
         <div
           className={`flex justify-between px-20 py-6 items-center transition-all duration-500 ease-in-out ${
-            isFixed ? "fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-500 ease-in-out" : ""
+            isFixed
+              ? "fixed top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-500 ease-in-out"
+              : ""
           }`}
         >
           <h4 className="font-inter text-[1.5rem] text-black leading-120 font-medium">
@@ -308,117 +310,190 @@ const HomePage = () => {
         </div>
         <div className="flex justify-center p-20">
           <div className="flex items-center justify-center bg-[#000000] pt-[3.4375rem] pl-[3.5rem] rounded-lg gap-[1.25rem] max-w-[80rem]">
-              <div className="flex flex-col gap-10 justify-start">
-                <div className="flex flex-col gap-4">
-                  <h2 className="text-left text-[3rem] font-inter font-medium leading-[3.6rem] text-white">Take Your Business to the Next Level</h2>
-                  <h6 className="font-inter text-[1.125rem] font-normal leading-[1.6875rem] text-left text-white">Join the growing number of businesses that trust our CRM Dashboard to drive their success. Sign up today and start experiencing the benefits of a streamlined and efficient business management system.</h6>
+            <div className="flex flex-col gap-10 justify-start">
+              <div className="flex flex-col gap-4">
+                <h2 className="text-left text-[3rem] font-inter font-medium leading-[3.6rem] text-white">
+                  Take Your Business to the Next Level
+                </h2>
+                <h6 className="font-inter text-[1.125rem] font-normal leading-[1.6875rem] text-left text-white">
+                  Join the growing number of businesses that trust our CRM
+                  Dashboard to drive their success. Sign up today and start
+                  experiencing the benefits of a streamlined and efficient
+                  business management system.
+                </h6>
+              </div>
+              <div className="flex items-center gap-3 mb-12">
+                <div className="flex justify-center items-center py-4 max-w-[12.8125rem] bg-white rounded text-black hover:bg-black hover:text-white font-inter text-[1rem] font-semibold leading-6 cursor-pointer w-full hover:border hover:border-white">
+                  Get Started
                 </div>
-                <div className="flex items-center gap-3 mb-12">
-                  <div className="flex justify-center items-center py-4 max-w-[12.8125rem] bg-white rounded text-black hover:bg-black hover:text-white font-inter text-[1rem] font-semibold leading-6 cursor-pointer w-full hover:border hover:border-white">
-                   Get Started
-                  </div>
-                  <div className="flex justify-center items-center py-4 max-w-[12.8125rem] bg-black rounded text-white hover:bg-white hover:text-black font-inter text-[1rem] font-semibold leading-6 cursor-pointer border border-white w-full">
-                    Contact Us
-                  </div>
+                <div className="flex justify-center items-center py-4 max-w-[12.8125rem] bg-black rounded text-white hover:bg-white hover:text-black font-inter text-[1rem] font-semibold leading-6 cursor-pointer border border-white w-full">
+                  Contact Us
                 </div>
               </div>
-              <Image
+            </div>
+            <Image
               src="/think.svg"
               alt="thinking"
               width={555}
               height={403}
               className="rounded-tl-lg rounded-br-lg"
-              />
+            />
           </div>
         </div>
         <div className="bg-black text-white p-20">
           <div className="flex">
-          <div className="flex flex-col gap-6 max-w-[27rem] w-full">
-              <h5 className="font-inter font-semibold text-[2rem] leading-[2.4rem] text-white">LOGO</h5>
+            <div className="flex flex-col gap-6 max-w-[27rem] w-full">
+              <h5 className="font-inter font-semibold text-[2rem] leading-[2.4rem] text-white">
+                LOGO
+              </h5>
               <div className="flex gap-4 justify-start">
                 <div className="group perspective-1000">
-                  <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/ig.svg" alt="Instagram" />
+                  <Image
+                    width={40}
+                    height={40}
+                    className="cursor-pointer transition-transform duration-300 group-hover:scale-125"
+                    src="/ig.svg"
+                    alt="Instagram"
+                  />
                 </div>
                 <div className="group perspective-1000">
-                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/fb.svg" alt="Facebook" />
+                  <Image
+                    width={40}
+                    height={40}
+                    className="cursor-pointer transition-transform duration-300 group-hover:scale-125"
+                    src="/fb.svg"
+                    alt="Facebook"
+                  />
                 </div>
                 <div className="group perspective-1000">
-                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/in.svg" alt="LinkedIn" />
+                  <Image
+                    width={40}
+                    height={40}
+                    className="cursor-pointer transition-transform duration-300 group-hover:scale-125"
+                    src="/in.svg"
+                    alt="LinkedIn"
+                  />
                 </div>
                 <div className="group perspective-1000">
-                <Image width={40} height={40} className="cursor-pointer transition-transform duration-300 group-hover:scale-125" src="/x.svg" alt="Twitter" />
+                  <Image
+                    width={40}
+                    height={40}
+                    className="cursor-pointer transition-transform duration-300 group-hover:scale-125"
+                    src="/x.svg"
+                    alt="Twitter"
+                  />
                 </div>
               </div>
-          </div>
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-[3.5rem]">
-          <div className="grid grid-cols-1 gap-4">
-              <div className="group perspective-1000">
-              <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">Pages</h5>
+            </div>
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-[3.5rem]">
+              <div className="grid grid-cols-1 gap-4">
+                <div className="group perspective-1000">
+                  <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">
+                    Pages
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    About Us
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Features
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Product
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Pricing
+                  </h5>
+                </div>
               </div>
-              <div className="group perspective-1000">
-              <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">About Us</h5>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="group perspective-1000">
+                  <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">
+                    Company
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Careers
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Guide
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Startup Program
+                  </h5>
+                </div>
               </div>
-              <div className="group perspective-1000">
-              <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Features</h5>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="group perspective-1000">
+                  <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">
+                    Support
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Help Center
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Customer Support
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    API Doca
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    System Status
+                  </h5>
+                </div>
               </div>
-              <div className="group perspective-1000">
-              <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Product</h5>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="group perspective-1000">
+                  <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">
+                    Resources
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    FAQ
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Blog
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Privacy Policy
+                  </h5>
+                </div>
+                <div className="group perspective-1000">
+                  <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
+                    Terms of Service
+                  </h5>
+                </div>
               </div>
-              <div className="group perspective-1000">
-              <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Pricing</h5>
-              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-1 gap-4">
-          <div className="group perspective-1000">
-          <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">Company</h5>
+          <div className="text-center font-inter leading-[1.225rem] text-[0.875rem] text-[#F3F3F3D6]">
+            Copyright © 2022. All rights reserved.
           </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Careers</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Guide</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Startup Program</h5>
-          </div>
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-          <div className="group perspective-1000">
-          <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">Support</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Help Center</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Customer Support</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">API Doca</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">System Status</h5>
-          </div>
-          </div>
-          <div className="grid grid-cols-1 gap-4">
-          <div className="group perspective-1000">
-          <h5 className="font-medium font-inter text-white text-[1.125rem] leading-[1.575rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">Resources</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">FAQ</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Blog</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Privacy Policy</h5>
-          </div>
-          <div className="group perspective-1000">
-          <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">Terms of Service</h5>
-          </div>
-          </div>
-          </div>
-          </div>
-        <div className="text-center font-inter leading-[1.225rem] text-[0.875rem] text-[#F3F3F3D6]">Copyright © 2022. All rights reserved.</div>
         </div>
       </div>
     </>
