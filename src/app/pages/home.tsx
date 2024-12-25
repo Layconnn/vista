@@ -434,6 +434,7 @@ const HomePage = () => {
                     Startup Program
                   </h5>
                 </div>
+                <div></div>
               </div>
               <div className="grid grid-cols-1 gap-4">
                 <div className="group perspective-1000">
@@ -453,7 +454,7 @@ const HomePage = () => {
                 </div>
                 <div className="group perspective-1000">
                   <h5 className="font-normal font-inter text-[#F3F3F3D6] text-[1rem] leading-[1.4rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-semibold hover:text-white">
-                    API Doca
+                    API Docs
                   </h5>
                 </div>
                 <div className="group perspective-1000">
