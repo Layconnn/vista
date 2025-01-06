@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { slide as Menu } from "react-burger-menu";
+// import { Twirl as Hamgurger } from "hamburger-react";
 import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 
@@ -13,6 +14,27 @@ const HomePage = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [ham, setHam] = useState<boolean>(false);
   const [burgerRight, setBurgerRight] = useState("2.5rem");
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+
+      if (prevScrollPos > currentScrollPos || currentScrollPos < 10) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,8 +54,8 @@ const HomePage = () => {
     const handleScroll = () => {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
-        setIsFixed(window.scrollY > 20);
-      }, 100); // Runs after 100ms of inactivity
+        setIsFixed(window.scrollY > 0);
+      }, 0); // Runs after 100ms of inactivity
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -139,59 +161,58 @@ const HomePage = () => {
   return (
     <>
       <div>
-        <div
-          className={`flex justify-between px-20 py-6 items-center transition-all duration-500 ease-in-out max-[1200px]:px-10 max-[600px]:px-4 ${
-            isFixed
-              ? "sticky top-0 left-0 w-full bg-white shadow-md z-50 transition-all duration-500 ease-in-out max-[1200px]:px-10 max-[600px]:px-4"
-              : ""
-          }`}
-        >
-          <h4 className="font-inter text-[1.5rem] text-black leading-120 font-medium">
-            LOGO
-          </h4>
-          {!ham ? (
-            <div className="flex justify-center items-center gap-10">
-              {["About", "Features", "Pricing", "Blog"].map((item) => (
+      <div
+      className={`flex justify-between px-20 py-6 items-center transition-all duration-500 ease-in-out max-[1200px]:px-10 max-[600px]:px-4 ${
+        isFixed
+          ? `fixed top-0 left-0 w-full bg-white shadow-md z-50 ${
+              visible ? 'translate-y-0' : '-translate-y-full'
+            }`
+          : ''
+      }`}
+    >
+      <h4 className="font-inter text-[1.5rem] text-black leading-120 font-medium">
+        LOGO
+      </h4>
+
+      {!ham ? (
+        <div className="flex justify-center items-center gap-10">
+          {['About', 'Features', 'Pricing', 'Blog'].map((item) => (
+            <div key={item} className="group perspective-1000">
+              <h5 className="text-hero text-[1.125rem] leading-140 font-inter font-medium cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:text-black hover:font-bold">
+                {item}
+              </h5>
+            </div>
+          ))}
+        </div>
+      ) : null}
+
+      {!ham ? (
+        <div className="flex justify-center items-center gap-10">
+          <div className="flex justify-center items-center gap-5">
+            <div className="flex justify-center items-center border border-dynamic-black rounded-lg text-white text-sm font-medium font-Inter leading-150 px-3 py-2 shadow-custom-shadow bg-neutral hover:text-black hover:bg-white transition-all duration-500 ease-in-out hover:cursor-pointer">
+              Purchase Now
+            </div>
+            <div className="flex justify-center items-center rounded-lg border border-action-outline-base px-3 py-2 text-sm font-medium leading-150 font-inter text-content-dark hover:bg-black hover:text-white transition-all duration-500 ease-in-out hover:cursor-pointer">
+              View Demo
+            </div>
+          </div>
+        </div>
+      ) : (
+        <Menu styles={styles} right itemListElement="div" >
+          <div className="flex flex-col justify-center items-center gap-20">
+            {['About', 'Features', 'Pricing', 'Blog', 'Purchase', 'Demo'].map(
+              (item) => (
                 <div key={item} className="group perspective-1000">
-                  <h5 className="text-hero text-[1.125rem] leading-140 font-inter font-medium cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:text-black hover:font-bold">
+                  <h5 className="text-white text-[1.125rem] leading-140 mb-8 font-inter font-medium cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">
                     {item}
                   </h5>
                 </div>
-              ))}
-            </div>
-          ) : null}
-          {!ham ? (
-            <div className="flex justify-center items-center gap-10">
-              <div className="flex justify-center items-center gap-5">
-                <div className="flex justify-center items-center border border-dynamic-black rounded-lg text-white text-sm font-medium font-Inter leading-150 px-3 py-2 shadow-custom-shadow bg-neutral hover:text-black hover:bg-white transition-all duration-500 ease-in-out hover:cursor-pointer">
-                  Purchase Now
-                </div>
-                <div className="flex justify-center items-center rounded-lg border border-action-outline-base px-3 py-2 text-sm font-medium leading-150 font-inter text-content-dark hover:bg-black hover:text-white transition-all duration-500 ease-in-out hover:cursor-pointer">
-                  View Demo
-                </div>
-              </div>
-            </div>
-          ) : (
-            <Menu styles={styles} right itemListElement="div" isOpen={false}>
-              <div className="flex flex-col justify-center items-center gap-20">
-                {[
-                  "About",
-                  "Features",
-                  "Pricing",
-                  "Blog",
-                  "Purchase",
-                  "Demo",
-                ].map((item) => (
-                  <div key={item} className="group perspective-1000">
-                    <h5 className="text-white text-[1.125rem] leading-140 mb-8 font-inter font-medium cursor-pointer transition-transform duration-300 group-hover:scale-105 hover:font-bold">
-                      {item}
-                    </h5>
-                  </div>
-                ))}
-              </div>
-            </Menu>
-          )}
-        </div>
+              )
+            )}
+          </div>
+        </Menu>
+      )}
+    </div>
         <div className="flex flex-col gap-10 p-20 pt-10 items-center w-full max-[1200px]:px-10 max-[600px]:px-4 max-[600px]:py-6 max-[600px]:gap-8">
           <div className="flex flex-col gap-3 items-center max-w-[64.75rem]">
             <h1 className="font-inter text-content-dark text-center font-medium text-[3rem] leading-120 max-w-[50rem] max-[1200px]:max-w-[37rem] max-[1200px]:text-[2rem] max-[600px]:text-[1.5rem]">
