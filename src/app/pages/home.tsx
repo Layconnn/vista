@@ -232,52 +232,60 @@ const HomePage = () => {
             className="rounded-[0.75rem]"
           />
         </div>
-        <div className="overflow-hidden whitespace-nowrap bg-black py-8 max-[959px]:py-4">
+        <div className="overflow-hidden whitespace-nowrap bg-black py-8 max-[959px]:py-4 max-[600px]:py-2">
           <Marquee pauseOnHover>
-            <div className="flex items-center gap-12 justify-center pl-12 cursor-pointer">
+            <div className="flex items-center gap-12 justify-center pl-12 cursor-pointer max-lg:gap-6 max-lg:pl-6">
               <Image
                 width={134.35296}
                 height={9}
                 alt="Learn more"
                 src="/coin.svg"
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
               />
               <Image
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
                 width={131.496}
                 height={32.964}
                 alt="Learn more"
                 src="/square.svg"
               />
               <Image
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
                 width={97.89808}
                 height={32.964}
                 alt="Learn more"
                 src="/zoom.svg"
               />
               <Image
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
                 width={179.2}
                 height={32}
                 alt="Learn more"
                 src="/drop.svg"
               />
               <Image
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
                 width={113}
                 height={48}
                 alt="Learn more"
                 src="/google.svg"
               />
               <Image
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
                 width={121}
                 height={48}
                 alt="Learn more"
                 src="/slack.svg"
               />
               <Image
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
                 width={131.496}
                 height={32.964}
                 src="/square.svg"
                 alt="Learn more"
               />
               <Image
+                className="max-lg:w-[3.125rem] max-lg:h-[3.125rem]"
                 src="/zoom.svg"
                 width={97.89808}
                 height={32.964}
@@ -399,14 +407,14 @@ const HomePage = () => {
               OneCRM
             </h6>
           </div>
-          <div className="flex justify-center relative overflow-hidden h-[20rem]">
-            <div className="pointer-events-none absolute top-0 left-0 w-[150px] h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
-            <div className="pointer-events-none absolute top-0 right-0 w-[150px] h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10"></div>
+          <div className="flex justify-center relative overflow-hidden h-[20rem] max-lg:h-[12rem]">
+            <div className="pointer-events-none absolute top-0 left-0 w-[150px] max-lg:w-[70px] h-full bg-gradient-to-r from-white via-white/80 to-transparent z-10"></div>
+            <div className="pointer-events-none absolute top-0 right-0 w-[150px] max-lg:w-[70px] h-full bg-gradient-to-l from-white via-white/80 to-transparent z-10"></div>
             <Marquee pauseOnHover speed={50}>
               {testimonials.map((testimonial) => (
                 <div key={testimonial.id} className="group perspective-1000">
-                  <div className="flex flex-col px-8 py-8 border border-opacity-56 rounded-lg max-w-[25rem] w-full mx-[1rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 max-[600px]:max-w-[22rem]">
-                    <div className="flex flex-col gap-12">
+                  <div className="flex flex-col px-8 py-8 border border-opacity-56 rounded-lg max-w-[25rem] w-full mx-[1rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 max-lg:p-4 max-lg:max-w-[15rem]">
+                    <div className="flex flex-col gap-12 max-lg:gap-6">
                       <div className="flex flex-col gap-4">
                         <div className="flex">
                           {[...Array(4)].map((_, i) => (
@@ -427,17 +435,17 @@ const HomePage = () => {
                             className="max-[959px]:w-[1rem]"
                           />
                         </div>
-                        <h6 className="font-inter text-[1.125rem] leading-[1.575rem] text-[#000000] font-medium max-[959px]:text-[1rem]">
+                        <h6 className="font-inter text-[1.125rem] leading-[1.575rem] text-[#000000] font-medium max-lg:text-[0.7rem] max-lg:leading-[1rem] max-lg:max-w-[20rem]">
                           {testimonial.review}
                         </h6>
                       </div>
-                      <div className="flex gap-6">
-                        <div className="rounded-[50%] w-[3rem] h-[3rem] bg-[#727272]"></div>
+                      <div className="flex gap-6 max-lg:gap-2">
+                        <div className="rounded-[50%] w-[3rem] h-[3rem] bg-[#727272] max-lg:w-[1.5rem] max-lg:h-[1.5rem]"></div>
                         <div className="flex flex-col gap-1">
-                          <h5 className="font-inter font-medium text-[1.125rem] leading-[1.575rem] text-[#000000] max-[959px]:text-[1rem]">
+                          <h5 className="font-inter font-medium text-[1.125rem] leading-[1.575rem] text-[#000000] max-lg:leading-[0.7rem] max-lg:text-[0.7rem]">
                             {testimonial.name}
                           </h5>
-                          <h5 className="font-inter font-normal text-[1.125rem] leading-[1.575rem] text-[#727272] max-[959px]:text-[1rem]">
+                          <h5 className="font-inter font-normal text-[1.125rem] leading-[1.575rem] text-[#727272] max-lg:leading-[0.7rem] max-lg:text-[0.7rem]">
                             {testimonial.role}
                           </h5>
                         </div>
@@ -453,10 +461,10 @@ const HomePage = () => {
           <div className="flex items-center justify-center bg-[#000000] pt-[3.4375rem] pl-[3.5rem] rounded-lg gap-[1.25rem] max-w-[80rem] w-[100%] max-[1300px]:flex-col max-[1200px]:gap-6 max-[1200px]:items-start max-[959px]:pl-10 max-[959px]:pt-10 max-[648px]:pt-4 max-[648px]:pl-6 max-[500px]:pl-4">
             <div className="flex flex-col gap-10 justify-start max-[1200px]:gap-6">
               <div className="flex flex-col gap-4 max-[1200px]:gap-0">
-                <h2 className="text-left text-[3rem] font-inter font-medium leading-[3.6rem] text-white max-[959px]:text-[2rem] max-[648px]:text-[1.5rem] max-[648px]:font-bold max-[648px]:leading-[2rem] max-[600px]:text-[1rem] max-[400px]:leading-[1rem]">
+                <h2 className="text-left text-[3rem] font-inter font-medium leading-[3.6rem] text-white max-[959px]:text-[2rem] max-[648px]:text-[1.5rem] max-[648px]:font-bold max-[648px]:leading-[2rem] max-[600px]:text-[1rem] max-[400px]:leading-[2rem]">
                   Take Your Business to the Next Level
                 </h2>
-                <h6 className="font-inter text-[1.125rem] font-normal leading-[1.6875rem] text-left text-white max-[1200px]:max-w-[40.5rem] max-[959px]:text-[1rem] max-[648px]:text-[0.8rem] max-[648px]:leading-[1.2rem] max-[648px]:max-w-[27.51rem] max-[500px]:text-[0.7rem] max-[500px]:max-w-[18.51rem] max-[600px]:text-[#727272]">
+                <h6 className="font-inter text-[1.125rem] font-normal leading-[1.6875rem] text-left text-white max-[1200px]:max-w-[40.5rem] max-[959px]:text-[1rem] max-[648px]:text-[0.8rem] max-[648px]:leading-[1rem] max-[648px]:max-w-[27.51rem] max-[500px]:text-[0.5rem] max-[500px]:max-w-[18.51rem] max-[600px]:text-[#727272]">
                   Join the growing number of businesses that trust our CRM
                   Dashboard to drive their success. Sign up today and start
                   experiencing the benefits of a streamlined and efficient
