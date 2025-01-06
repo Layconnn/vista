@@ -415,7 +415,7 @@ const HomePage = () => {
                 <div key={testimonial.id} className="group perspective-1000">
                   <div className="flex flex-col px-8 py-8 border border-opacity-56 rounded-lg max-w-[25rem] w-full mx-[1rem] cursor-pointer transition-transform duration-300 group-hover:scale-105 max-lg:p-4 max-lg:max-w-[15rem]">
                     <div className="flex flex-col gap-12 max-lg:gap-6">
-                      <div className="flex flex-col gap-4">
+                      <div className="flex flex-col gap-4 max-lg:gap-2">
                         <div className="flex">
                           {[...Array(4)].map((_, i) => (
                             <Image
@@ -435,7 +435,7 @@ const HomePage = () => {
                             className="max-[959px]:w-[1rem]"
                           />
                         </div>
-                        <h6 className="font-inter text-[1.125rem] leading-[1.575rem] text-[#000000] font-medium max-lg:text-[0.7rem] max-lg:leading-[1rem] max-lg:max-w-[20rem]">
+                        <h6 className="font-inter text-[1.125rem] leading-[1.575rem] text-[#000000] font-medium max-lg:text-[0.7rem] max-lg:leading-[1.2rem] max-lg:max-w-[20rem] max-lg:font-normal">
                           {testimonial.review}
                         </h6>
                       </div>
