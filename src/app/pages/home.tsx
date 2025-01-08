@@ -164,7 +164,7 @@ const HomePage = () => {
       <div
       className={`flex justify-between px-20 py-6 items-center transition-all duration-500 ease-in-out max-[1200px]:px-10 max-[600px]:px-4 ${
         isFixed
-          ? `fixed top-0 left-0 w-full bg-white shadow-md z-50 ${
+          ? `sticky top-0 left-0 w-full bg-white shadow-md z-50 max-w-[1440px] mx-auto ${
               visible ? 'translate-y-0' : '-translate-y-full'
             }`
           : ''
